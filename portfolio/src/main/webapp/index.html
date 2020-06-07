@@ -2,19 +2,40 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Haihan Chen</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
+    <header>
+        <a class="logo" href="/"><img src="images/logo.svg" alt="Haihan Chen"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#">Contact</a>
+        <p class="menu cta">Menu</p>
+    </header>
+    <div id="mobile__menu" class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+        </div>
+    </div>
     <div id="content">
-      <h1>Haihan's Portfolio</h1>
-      <p>This is my portfolio.</p>
+      <h1>Haihan Chen</h1>
+      <p>Hey, I'm Haihan and this is my portfolio page.</p>
       <p>Click here to get a random fact about myself:</p>
       <button onclick="addRandomFact()">Hello</button>
       <div id="fact-container"></div>
       <img src="/images/mypic.jpg" alt="Haihan Chen" width="338" height="600"></img>
       <p>Hi, I'm Haihan Chen, a software engineering student at McGill University. I'm passionate about smart cities and IoT technologies.</p>
+      <div id='text'>Hello</div><div id='cursor'></div>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
