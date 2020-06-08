@@ -2,39 +2,51 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Haihan Chen</title>
+    <title>Haihan's Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
-    <header>
-        <a class="logo" href="/"><img src="images/logo.svg" alt="Haihan Chen"></a>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-            </ul>
-        </nav>
-        <a class="cta" href="#">Contact</a>
-        <p class="menu cta">Menu</p>
-    </header>
-    <div id="mobile__menu" class="overlay">
-        <a class="close">&times;</a>
-        <div class="overlay__content">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Projects</a>
+    <div id="firstpage">
+        <div class="app-header">
+            <div class="app-header-right">
+                <ul><a href="#About Me">About Me</a></ul>
+                <ul><a href="#Projects">Projects</a></ul>
+                <ul><a href="#Contact">Contact</a></ul>
+            </div>
+        </div>
+        <div class=message>
+            <h1>Hey, I'm Haihan</h1>
+            <br></br>
+            <div class=p>
+                <p>I love</p>&nbsp<div id='text'></div><div id='cursor'></div>
+            </div>
+            <br></br>
+            <div class=p>
+                <ul>
+                    <li><a href="https://www.facebook.com/haihan.chen.96" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://github.com/konzert" target="_blank"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/haihan-chen-9908b0193/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div id="content">
-      <h1>Haihan Chen</h1>
-      <p>Hey, I'm Haihan and this is my portfolio page.</p>
-      <p>Click here to get a random fact about myself:</p>
-      <button onclick="addRandomFact()">Hello</button>
-      <div id="fact-container"></div>
-      <img src="/images/mypic.jpg" alt="Haihan Chen" width="338" height="600"></img>
-      <p>Hi, I'm Haihan Chen, a software engineering student at McGill University. I'm passionate about smart cities and IoT technologies.</p>
-      <div id='text'>Hello</div><div id='cursor'></div>
+    <div id="header">
+      <div id="description">
+        <h1>Haihan Chen</h1>
+        <h2>Software Developer Intern at <a href="https://www.ibm.com/ca-en" target="_blank">IBM</a></h2>
+        <br></br>
+        <p>Hey! I’m a software engineering student at <a href="https://www.mcgill.ca/" target="_blank">McGill University</a>. I’m passionate
+about <a href="https://www.mcgill.ca/" target="_blank">performance engineering</a>, IoT solutions and geopolitics. My hobbies
+include foosball, piano playing and <a href="https://www.swimming.ca/en/swimmer/4782401/" target="_blank">swimming</a>.</p>
+        <p>Click here to get a random fact about myself:&emsp;<button onclick="addRandomFact()">Generate random fact</button></p>
+        <div id="fact-container"></div>
+        <button class="project-button">View Projects</button>
+        <button class="resume-button">View Resume</button>
+      </div>
+      <div id="image">
+        <img src="/images/mypic.jpeg" alt="Haihan Chen" style="float: right;" width=250px height=auto></img>
+      </div>
     </div>
   </body>
   <script src="script.js"></script>

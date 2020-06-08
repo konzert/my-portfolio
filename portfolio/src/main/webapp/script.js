@@ -12,23 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-document.querySelector(".menu").addEventListener("click", () => {
-  document.querySelector(".overlay").classList.add("overlay--active");
-});
-
-document.querySelector(".close").addEventListener("click", () => {
-  document.querySelector(".overlay").classList.remove("overlay--active");
-});
-
-// Start the typing effect on load
-_INTERVAL_VAL = setInterval(Type, 100);
-
 // List of sentences
 var _CONTENT = [ 
-	"Twinkle, twinkle, little star", 
-	"How I wonder what you are", 
-	"Up above the world so high", 
-	"Like a diamond in the sky"
+	"software development", 
+	"photography", 
+	"filmmaking", 
+	"product design"
 ];
 
 // Current sentence being processed
@@ -51,7 +40,7 @@ var _CURSOR = document.querySelector("#cursor");
  */
 function addRandomFact() {
   const facts =
-      ["I'm doing a degree in Classical Piano Performance", 'I love yogurt soju', 'I love foosball', 'I have a passion for visual art design'];
+      ["I'm doing a degree in Classical Piano Performance.", 'Yogurt soju is my favourite drink.', 'I play foosball during all my breaks.', "I'm open to any discussion about geopolitics."];
 
   // Pick a random greeting.
   const fact = facts[Math.floor(Math.random() * facts.length)];

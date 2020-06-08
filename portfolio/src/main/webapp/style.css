@@ -1,135 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 30px 10%;
-  background-color: #24252a;
+#firstpage {
+  text-align: center;
+  /* background-image: url("/images/pond.JPG"); */
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("images/pond.JPG");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed;  */
+  background-position: center;
+  height: 100vh;
+  position: relative;
 }
 
-.logo {
-  margin-right: auto;
+.app-header {
+  padding-top: 25px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
-
-.nav__links {
-  list-style: none;
-  display: flex;
+.app-header ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 135px;
 }
-
-.nav__links a,
-.cta,
-.overlay__content a {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  color: #edf0f1;
+.app-header a {
+  display: inline-block;
+  color: white;
+  margin: 15px 30px 0px 30px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+.app-header a:hover {
+  transition-duration: 0.5s;
+  color: orange;
   text-decoration: none;
 }
-
-.nav__links li {
-  padding: 0px 20px;
-}
-
-.nav__links li a {
-  transition: all 0.3s ease 0s;
-}
-
-.nav__links li a:hover {
-  color: #0088a9;
-}
-
-.cta {
-  margin-left: 20px;
-  padding: 9px 25px;
-  background-color: rgba(0, 136, 169, 1);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-
-.cta:hover {
-  background-color: rgba(0, 136, 169, 0.8);
-}
-
-/* Mobile Nav */
-
-.menu {
-  display: none;
-}
-
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  background-color: #24252a;
-  overflow-x: hidden;
-  transition: all 0.5s ease 0s;
-}
-
-.overlay--active {
-  width: 100%;
-}
-
-.overlay__content {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.overlay a {
-  padding: 15px;
-  font-size: 36px;
+.app-header a:after {
+  content: "";
   display: block;
-  transition: all 0.3s ease 0s;
+  margin: auto;
+  height: 3px;
+  width: 0px;
+  background: transparent;
+  transition: width 0.3s ease, background-color 0.5s ease;
+}
+.app-header a:hover:after {
+  width: 100%;
+  background: orange;
 }
 
-.overlay a:hover,
-.overlay a:focus {
-  color: #0088a9;
-}
-.overlay .close {
+.message {
   position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  color: #edf0f1;
-  cursor: pointer;
+  width: 100%;
+  top: 40%;
+  right: 20%;
 }
 
-@media screen and (max-height: 450px) {
-  .overlay a {
-    font-size: 20px;
-  }
-  .overlay .close {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
+.message h1 {
+  color: white;
+  position: relative;
+  display: inline-flex;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  font-weight: 100;
 }
 
-@media only screen and (max-width: 800px) {
-  .nav__links,
-  .cta {
-    display: none;
-  }
-  .menu {
-    display: initial;
-  }
+.p {
+  color: white;
+  font-size: 25px;
+  display: inline-flex;
+  position: relative;
 }
 
+#description a {
+    color: #416DAC;
+    font-weight: bold
+}
 
+#description {
+    display: inline
+}
+
+#description h1{
+    padding: 10px 10px;
+}
+
+#description h2 {
+    padding: 10px 10px;
+    font-weight: 200
+}
+
+#description p {
+    padding: 10px 10px;
+    font-weight: 100;
+}
+
+h2 {
+    display: inline
+}
+
+#image {
+    padding: 5px 30px;
+    display: inline;
+}
+
+#header {
+  display: inline-flex;
+  /* justify-content: flex-end; */
+  padding: 30px 10%;
+  background-color: #f2f2f2;
+}
+
+/* #description {
+    display: inline-flex;
+    padding: 30px 10%;
+    background-color: grey
+} */
 
 #content {
   margin-left: auto;
@@ -139,6 +137,11 @@ header {
 
 #fact-container {
   margin-top: 20px;
+  display: inline-flex;
+  font-weight: 200;
+  margin: 0px;
+  padding: 0px 10px;
+  color: #2867B2;
 }
 
 #text {
@@ -152,7 +155,7 @@ header {
 	display: inline-block;
 	vertical-align: middle;
 	width: 3px;
-	height: 50px;
+	height: 30px;
 	background-color: orange;
 	animation: blink .75s step-end infinite;
 }
@@ -164,4 +167,70 @@ header {
 	50% { 
 		background-color: orange; 
 	}
+}
+
+.p ul{
+  display: flex;
+}
+
+.p a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.p ul li{
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 30px;
+  height: 60px;
+  width: 60px;
+  background: none;
+  line-height: 60px;
+  border-radius: 50%;
+  margin: 0 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+.p ul li:before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
+  border-radius: 50%;
+  transform: scale(.9);
+  z-index: -1;
+  transition: .3s;
+}
+.p ul li:nth-child(1):before{
+  background: #3b5998;
+}
+.p ul li:nth-child(2):before{
+  background: #E1306C;
+}
+.p ul li:nth-child(3):before{
+  background: #2867B2;
+}
+.p ul li:hover:before{
+  transform: scale(1.2);
+}
+.p ul li:nth-child(1):hover:before{
+  box-shadow: 0 0 15px #3b5998;
+}
+.p ul li:nth-child(2):hover:before{
+  box-shadow: 0 0 15px #E1306C;
+}
+.p ul li:nth-child(3):hover:before{
+  box-shadow: 0 0 15px #2867B2;
+}
+.p ul li:nth-child(1):hover{
+  color: #3b5998;
+}
+.p ul li:nth-child(2):hover{
+  color: #E1306C;
+}
+.p ul li:nth-child(3):hover{
+  color: #2867B2;
 }
