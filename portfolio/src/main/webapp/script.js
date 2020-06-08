@@ -17,7 +17,8 @@ var _CONTENT = [
 	"software development", 
 	"photography", 
 	"filmmaking", 
-	"product design"
+	"product design",
+    "UI/UX design"
 ];
 
 // Current sentence being processed

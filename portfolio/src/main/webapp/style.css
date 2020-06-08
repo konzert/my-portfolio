@@ -9,11 +9,9 @@
 
 #firstpage {
   text-align: center;
-  /* background-image: url("/images/pond.JPG"); */
   background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("images/pond.JPG");
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-attachment: fixed;  */
   background-position: center;
   height: 100vh;
   position: relative;
@@ -24,7 +22,6 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  display:flex;
   justify-content:center;
   align-items:center;
 }
@@ -85,12 +82,19 @@
 }
 
 #description a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#description h1 a, #description h2 a, #description p a {
     color: #416DAC;
+    text-decoration: underline;
     font-weight: bold
 }
 
 #description {
-    display: inline
+    display: inline;
+    scroll-behavior: smooth 
 }
 
 #description h1{
@@ -118,16 +122,9 @@ h2 {
 
 #header {
   display: inline-flex;
-  /* justify-content: flex-end; */
   padding: 30px 10%;
   background-color: #f2f2f2;
 }
-
-/* #description {
-    display: inline-flex;
-    padding: 30px 10%;
-    background-color: grey
-} */
 
 #content {
   margin-left: auto;
@@ -192,6 +189,7 @@ h2 {
   cursor: pointer;
   transition: .3s;
 }
+
 .p ul li:before{
   position: absolute;
   content: '';
@@ -233,4 +231,53 @@ h2 {
 }
 .p ul li:nth-child(3):hover{
   color: #2867B2;
+}
+
+.project-button {
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  width: 125px;
+  height: 32px;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.project-button:hover {
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    color: black;
+    font-weight: bold;
+}
+
+.resume-button {
+  background-color: #f2f2f2;
+  border: 1px solid black;
+  color: black;
+  border-radius: 5px;
+  margin-left: 20px;
+  width: 125px;
+  height: 32px;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.resume-button:hover {
+    background-color: #2867B2;
+    border: none;
+    font-weight: bold;
+    color: white;
+}
+
+.random-fact {
+  background-color: orange;
+  border-radius: 20px;
+  color: black;
+  border: none;
+  margin-left: 10px;
+  width: 170px;
+  height: 32px;
+  font-size: 14px;
 }
