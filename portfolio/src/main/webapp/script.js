@@ -105,3 +105,25 @@ function getGreeting() {
     document.getElementById('greeting-container').innerText = greeting;
   });
 }
+
+function getComments() {
+  fetch('/data').then(response => response.json()).then((comment) => {
+    // stats is an object, not a string, so we have to
+    // reference its fields to create HTML content
+    console.log(comment[0]);
+    console.log(comment.length);
+    const listElement = document.getElementById('comments-list');
+    listElement.innerHTML = '';
+    var i;
+    for (i = 0; i < comment.length; i++) {
+        listElement.appendChild(createListElement(comment[i]));
+    }
+  });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(comment) {
+  const liElement = document.createElement('li');
+  liElement.innerText = comment;
+  return liElement;
+}
