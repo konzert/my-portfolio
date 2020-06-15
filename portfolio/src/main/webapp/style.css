@@ -24,8 +24,6 @@ html {
 #firstpage {
     text-align: center;
     background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("images/pond.JPG");
-    /* background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("images/alternative-background.JPG"); */
-    /* background-image: url("images/alternative-background.JPG"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -109,7 +107,6 @@ html {
 #description h1 a, #description h2 a, #description p a {
     color: #416DAC;
     text-decoration: none;
-    /* text-decoration: underline; */
     font-weight: bold
 }
 
@@ -143,13 +140,11 @@ h2 {
     display: inline-flex;
     position: relative;
     align-items: flex-end;
-    /* min-width: 30% */
 }
 
 #header {
     display: inline-flex;
     position: relative;
-    /* padding: 30px 10%; */
     background-color: #f2f2f2;
 }
 
@@ -362,7 +357,6 @@ h2 {
 }
 
 .project-item {
-    /* display: flex; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -387,7 +381,6 @@ h2 {
     vertical-align: middle;
     visibility: hidden;
     opacity: 0;
-    /* transition effect. not necessary */
     transition: opacity .5s, visibility .5s;
 }
 
