@@ -11,8 +11,8 @@
         <div class="app-header">
             <div class="app-header-right">
                 <ul><a href="#description">About Me</a></ul>
-                <ul><a href="https://github.com/konzert?tab=repositories" target="_blank">Projects</a></ul>
-                <ul><a href="#Contact">Contact</a></ul>
+                <ul><a href="#project">Projects</a></ul>
+                <ul><a href="#contact">Contact</a></ul>
             </div>
         </div>
         <div class=message>
@@ -39,15 +39,37 @@
         <p>Hey! I’m a software engineering student at <a href="https://www.mcgill.ca/" target="_blank">McGill University</a>. I’m passionate
 about <a href="https://www.mcgill.ca/" target="_blank">performance engineering</a>, IoT solutions and geopolitics. My hobbies
 include foosball, piano playing and <a href="https://www.swimming.ca/en/swimmer/4782401/" target="_blank">swimming</a>.</p>
-        <p>Click here to get a random fact about myself:&emsp;<button class="random-fact" onclick="addRandomFact()">Generate random fact</button></p>
+        <p>Click here to get a random fact about myself:<button class="random-fact" onclick="addRandomFact()">Generate random fact</button></p>
         <div id="fact-container"></div>
         <br></br>
         <button class="project-button"><a href="https://github.com/konzert?tab=repositories" target="_blank">Projects</a></button>
-        <button class="resume-button"><a href="/files/Haihan%20Chen%20-%20Resume%20%5BApril%5D.pdf/" download="resume-april">View Resume</a></button>
+        <button class="resume-button"><a href="files/Haihan%20Chen%20-%20Resume%20%5BApril%5D.pdf" download="resume-april">View Resume</a></button>
       </div>
       <div id="image">
-        <img src="/images/mypic.jpeg" alt="Haihan Chen" style="float: right;" width=250px height=auto></img>
+        <img src="/images/mypic.png" alt="Haihan Chen" style="float: right;" width=300px height=auto></img>
       </div>
+    </div>
+    <div id="project">
+        <h2>Projects Showcase</h2>
+        <div class="project-show">
+            <div class="project-item">
+                <h3 class="image-description">Curbside</h3>
+                <p class="image-description">An android application which displays real-time on-street parking availability.</p>
+            </div>
+            <div class="project-item">
+                <h3 class="image-description">Hydra Robotics</h3>
+                <p class="image-description">Mindstorms Robot design project for localization, navigation, and ballistic launching.</p>
+            </div>
+            <div class="project-item">
+                <h3 class="image-description">Bowling Website</h3>
+                <p class="image-description">Online website for bowling reservations, and displaying news and events.</p>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <h2>Contact Me :)</h2>
+        <button class="greeting-button" onclick="getGreeting()">Fetch a greeting!</button>
+        <span id="greeting-container"></span>
     </div>
   </body>
   <script src="script.js"></script>
