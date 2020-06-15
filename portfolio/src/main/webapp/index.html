@@ -68,8 +68,20 @@ include foosball, piano playing and <a href="https://www.swimming.ca/en/swimmer/
     </div>
     <div id="contact">
         <h2>Contact Me :)</h2>
-        <button class="greeting-button" onclick="getGreeting()">Fetch a greeting!</button>
-        <span id="greeting-container"></span>
+        <div id="contact-form">
+            <iframe name="hidden" style="display:none;"></iframe>
+            <form name="comment-form" action="/data" method="POST" target="hidden">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="firstname" placeholder="Your first name">
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="lastname" placeholder="Your last name">
+
+                <label for="comment">Comment</label>
+                <textarea id="comment" name="comment" placeholder="Leave a comment" style="height:200px"></textarea>
+                <input type="button" value="Submit" onclick="submitForm()">
+            </form>
+        </div>
         <button class="greeting-button" onclick="getComments()">Fetch comments!</button>
         <div id="comments-list"></div>
     </div>
