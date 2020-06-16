@@ -51,7 +51,9 @@ function addRandomFact() {
   factContainer.innerText = fact;
 }
 
-// Implements typing effect
+/**
+ * Function which implements the typing animation.
+ */
 function Type() { 
 	// Get substring with 1 characater added
 	var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
@@ -70,7 +72,9 @@ function Type() {
 	}
 }
 
-// Implements deleting effect
+/**
+ * Function which implements the deleting effect for the typing animation.
+ */
 function Delete() {
 	// Get substring with 1 characater deleted
 	var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
@@ -106,12 +110,11 @@ function getGreeting() {
   });
 }
 
+/**
+ * Function which fetches comments with a get request and appends it to a list.
+ */
 function getComments() {
   fetch('/data').then(response => response.json()).then((comment) => {
-    // stats is an object, not a string, so we have to
-    // reference its fields to create HTML content
-    console.log(comment[0]);
-    console.log(comment.length);
     const listElement = document.getElementById('comments-list');
     listElement.innerHTML = '';
     var i;
@@ -121,27 +124,22 @@ function getComments() {
   });
 }
 
-/** Creates an <li> element containing text. */
+/**
+ * Creates list elements for listing comments
+ */
 function createListElement(comment) {
   const liElement = document.createElement('li');
   liElement.innerText = comment;
   return liElement;
 }
 
-function clearForms() {
-    var i;
-    for (i = 0; (i < document.forms.length); i++) {
-        document.forms[i].reset();
-    }
-}
-
+/**
+ * Function that handles submitting the form and resetting the values in the comment forms fields.
+ * It returns false so that the current page does not refresh.
+ */
 function submitForm() {
-   // Get the first form with the name
-   // Usually the form name is not repeated
-   // but duplicate names are possible in HTML
-   // Therefore to work around the issue, enforce the correct index
    var frm = document.getElementsByName('comment-form')[0];
-   frm.submit(); // Submit the form
-   frm.reset();  // Reset all form data
-   return false; // Prevent page refresh
+   frm.submit();
+   frm.reset();  
+   return false;
 }
