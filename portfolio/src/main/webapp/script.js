@@ -114,13 +114,13 @@ function getGreeting() {
  * Function which fetches comments with a get request and appends it to a list.
  */
 function getComments() {
-  fetch('/data').then(response => response.json()).then((comment) => {
+  fetch('/data').then(response => response.text()).then((comment) => {
     const listElement = document.getElementById('comments-list');
+    const commentList = JSON.parse(comment);
     listElement.innerHTML = '';
-    var i;
-    for (i = 0; i < comment.length; i++) {
-        listElement.appendChild(createListElement(comment[i]));
-    }
+    commentList.forEach((comment) => {
+        listElement.appendChild(createListElement(comment.firstName + " " + comment.lastName + " : " + comment.comment));
+    })
   });
 }
 

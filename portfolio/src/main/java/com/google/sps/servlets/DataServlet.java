@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.sps.data.Comment;
+
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -30,13 +32,8 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.*;
 import com.google.gson.Gson;
 
-
-
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-
-//   List<String> commentList = new ArrayList<String>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -45,19 +42,22 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
-    List<String> commentList = new ArrayList<String>();
+    List<Comment> commentList = new ArrayList<>();
 
     for (Entity entity : results.asIterable()) {
       String firstName = (String) entity.getProperty("firstName");
       String lastName = (String) entity.getProperty("lastName");
       String comment = (String) entity.getProperty("comment");
-      String commentItem = firstName + " " + lastName + " : " + comment;
+      Comment commentItem = new Comment(firstName, lastName, comment);
+    //   String commentItem = firstName + " " + lastName + " : " + comment;
       commentList.add(commentItem);
     }
 
-    String json = convertToJson(commentList);
+    Gson gson = new Gson();
+
+    // String json = convertToJson(commentList);
     response.setContentType("application/json;");
-    response.getWriter().println(json);
+    response.getWriter().println(gson.toJson(commentList));
   }
 
   private String convertToJson(List<String> list) {
@@ -71,13 +71,6 @@ public class DataServlet extends HttpServlet {
     String firstName = getParameter(request, "firstname", "");
     String lastName = getParameter(request, "lastname", "");
     String comment = getParameter(request, "comment", "");
-    
-    // String commentItem = getParameter(request, "firstname", "") + " " + getParameter(request, "lastname", "") + " : " + getParameter(request, "comment", "");
-    // commentList.add(commentItem);
-
-    // response.sendRedirect("/index.html");
-    // response.setContentType("text/html;");
-    // response.getWriter().println(commentList);
 
     Entity taskEntity = new Entity("Comment");
     taskEntity.setProperty("firstName", firstName);
