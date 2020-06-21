@@ -19,13 +19,15 @@ package com.google.sps.data;
  */
 public final class Comment {
 
-    private final String firstName;
-    private final String lastName;
-    private final String comment;
+  private final String firstName;
+  private final String lastName;
+  private final String comment;
+  private final String score;
 
-    public Comment (String firstName, String lastName, String comment) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.comment = comment;
-    }
+  public Comment (String firstName, String lastName, String comment, String score) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.comment = comment;
+    this.score = score;
+  }
 }

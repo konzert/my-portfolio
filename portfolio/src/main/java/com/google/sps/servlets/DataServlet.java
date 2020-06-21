@@ -20,6 +20,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
+
 import com.google.sps.data.Comment;
 
 import com.google.appengine.api.datastore.DatastoreService;
@@ -48,22 +52,15 @@ public class DataServlet extends HttpServlet {
       String firstName = (String) entity.getProperty("firstName");
       String lastName = (String) entity.getProperty("lastName");
       String comment = (String) entity.getProperty("comment");
-      Comment commentItem = new Comment(firstName, lastName, comment);
-    //   String commentItem = firstName + " " + lastName + " : " + comment;
+      String score = (String) entity.getProperty("score");
+      Comment commentItem = new Comment(firstName, lastName, comment, score);
       commentList.add(commentItem);
     }
 
     Gson gson = new Gson();
 
-    // String json = convertToJson(commentList);
     response.setContentType("application/json;");
     response.getWriter().println(gson.toJson(commentList));
-  }
-
-  private String convertToJson(List<String> list) {
-    Gson gson = new Gson();
-    String json = gson.toJson(list);
-    return json;
   }
 
   @Override
@@ -72,10 +69,17 @@ public class DataServlet extends HttpServlet {
     String lastName = getParameter(request, "lastname", "");
     String comment = getParameter(request, "comment", "");
 
+    Document doc = Document.newBuilder().setContent(comment).setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    String score = String.valueOf(sentiment.getScore());
+    languageService.close();
+
     Entity taskEntity = new Entity("Comment");
     taskEntity.setProperty("firstName", firstName);
     taskEntity.setProperty("lastName", lastName);
     taskEntity.setProperty("comment", comment);
+    taskEntity.setProperty("score", score);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
