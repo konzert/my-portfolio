@@ -14,9 +14,37 @@
 
 package com.google.sps;
 
-import java.util.Collection;
+import java.util.*;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
+    List<TimeRange> usedTimes = new ArrayList<>();
+    ArrayList<TimeRange> availableTimes = new ArrayList<>();
+
+    for (Event event : events) {
+      Set<String> duplicateAttendees = new HashSet<String>(request.getAttendees());
+      duplicateAttendees.retainAll(event.getAttendees()); // great method to retain all duplicates
+      if (duplicateAttendees.size() >= 1) {
+        usedTimes.add(event.getWhen()); // add if users are present
+      }
+    }
+
+    int prevStart = 0;
+    usedTimes.add(TimeRange.fromStartDuration(1440, 0)); // provides the end time if there is still time left after the last used time block
+    Collections.sort(usedTimes, TimeRange.ORDER_BY_START); // sort in ascending order
+
+    for (TimeRange currTime : usedTimes) {
+      // case 1: if there is a gap between two used times
+      if (currTime.start() > prevStart) {
+        if (currTime.start() - prevStart >= request.getDuration()) {
+          availableTimes.add(TimeRange.fromStartEnd(prevStart, currTime.start(), false));
+        }
+        prevStart = currTime.end();
+      // case 2: if not just increment to the next used block
+      } else if (currTime.end() > prevStart) { // if else fails nested event
+        prevStart = currTime.end();
+      }
+    }
+    return availableTimes;
   }
 }
