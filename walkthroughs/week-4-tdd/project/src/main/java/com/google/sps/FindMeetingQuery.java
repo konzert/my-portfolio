@@ -14,10 +14,10 @@
 
 package com.google.sps;
 
-import java.util.Collection;
+import java.util.*;
 
 public final class FindMeetingQuery {
-    
+
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
     List<TimeRange> usedTimes = new ArrayList<>();
     ArrayList<TimeRange> availableTimes = new ArrayList<>();
